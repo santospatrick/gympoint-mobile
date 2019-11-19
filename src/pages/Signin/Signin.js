@@ -1,13 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+
+import Button from 'components/Button';
+import Input from 'components/Input';
 import { Container, Form, Logo } from './styles';
 
 const Signin = () => {
     return (
         <Container>
             <Form>
-                <Logo source={require('assets/logo.png')} />
-                <Text>Signin</Text>
+                <Logo source={require('../../assets/logo.png')} />
+                <Input
+                    placeholder="Informe seu ID de cadastro"
+                    returnKeyType="send"
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                />
+                <Button onPress={() => {}}>Entrar no sistema</Button>
             </Form>
         </Container>
     );

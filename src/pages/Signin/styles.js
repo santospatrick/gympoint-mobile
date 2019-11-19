@@ -13,9 +13,9 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 
 export const Form = styled.View`
     align-self: stretch;
-    align-items: center;
 `;
 
 export const Logo = styled.Image`
+    align-self: center;
     margin-bottom: 20px;
 `;
