@@ -1,11 +1,20 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
+import { signIn } from 'store/modules/auth/actions';
 import { Container, Form, Logo } from './styles';
 
 const Signin = () => {
+    const dispatch = useDispatch();
+    const [value, setValue] = useState('');
+
+    function handleSubmit() {
+        if (!value) return;
+        dispatch(signIn(value));
+    }
+
     return (
         <Container>
             <Form>
@@ -15,8 +24,10 @@ const Signin = () => {
                     returnKeyType="send"
                     autoCorrect={false}
                     autoCapitalize="none"
+                    onChangeText={setValue}
+                    value={value}
                 />
-                <Button onPress={() => {}}>Entrar no sistema</Button>
+                <Button onPress={handleSubmit}>Entrar no sistema</Button>
             </Form>
         </Container>
     );
