@@ -5,7 +5,7 @@ const Checkin = ({ data, index }) => {
     return (
         <Container>
             <Number>Check-in #{index + 1}</Number>
-            <Time>Hoje as 14h</Time>
+            <Time>{data.formattedDate}</Time>
         </Container>
     );
 };
