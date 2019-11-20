@@ -51,11 +51,4 @@ const Checkins = () => {
     );
 };
 
-Checkins.navigationOptions = {
-    tabBarLabel: 'Check-ins',
-    tabBarIcon: ({ tintColor }) => (
-        <Icon name="person-pin-circle" size={20} color={tintColor} />
-    ),
-};
-
 export default Checkins;

@@ -8,6 +8,7 @@ import Signin from 'pages/Signin';
 import Checkins from 'pages/Checkins';
 import Header from 'components/Header';
 import HelpOrders from 'pages/HelpOrders';
+import NewHelpOrder from 'pages/NewHelpOrder';
 
 export default (signedIn = false) =>
     createAppContainer(
@@ -18,14 +19,49 @@ export default (signedIn = false) =>
                     {
                         Main: createBottomTabNavigator(
                             {
-                                Checkins,
+                                CheckinsStack: {
+                                    screen: createStackNavigator(
+                                        {
+                                            Checkins,
+                                        },
+                                        {
+                                            defaultNavigationOptions: {
+                                                headerTitle: () => <Header />,
+                                            },
+                                            navigationOptions: {
+                                                tabBarLabel: 'Check-ins',
+                                                tabBarIcon: ({ tintColor }) => (
+                                                    <Icon
+                                                        name="person-pin-circle"
+                                                        size={20}
+                                                        color={tintColor}
+                                                    />
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                },
                                 HelpOrdersStack: {
                                     screen: createStackNavigator(
                                         {
                                             HelpOrders,
+                                            NewHelpOrder,
                                         },
                                         {
-                                            headerMode: 'none',
+                                            headerBackTitleVisible: false,
+                                            defaultNavigationOptions: {
+                                                headerTitle: () => <Header />,
+                                                headerBackImage: () => (
+                                                    <Icon
+                                                        name="chevron-left"
+                                                        color="#000"
+                                                        size={24}
+                                                        style={{
+                                                            marginLeft: 15,
+                                                        }}
+                                                    />
+                                                ),
+                                            },
                                         },
                                     ),
                                     navigationOptions: {
@@ -46,13 +82,12 @@ export default (signedIn = false) =>
                                     activeTintColor: '#EE4E62',
                                     inactiveTintColor: '#999999',
                                 },
+                                resetOnBlur: true,
                             },
                         ),
                     },
                     {
-                        defaultNavigationOptions: {
-                            header: <Header />,
-                        },
+                        headerMode: 'none',
                     },
                 ),
             },
