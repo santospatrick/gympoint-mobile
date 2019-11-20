@@ -9,11 +9,11 @@ import {
     Question,
 } from './styles';
 
-const HelpOrder = ({ data }) => {
+const HelpOrder = ({ data, ...rest }) => {
     const answered = useMemo(() => !!data.answer, [data.answer]);
 
     return (
-        <Container>
+        <Container {...rest}>
             <Header>
                 <Left>
                     <Icon answered={answered} />

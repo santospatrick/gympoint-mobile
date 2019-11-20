@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 import IconComponent from 'react-native-vector-icons/MaterialIcons';
 
-export const Container = styled.View`
+export const Container = styled(RectButton)`
     height: 150px;
     background: #fff;
     border-radius: 4px;

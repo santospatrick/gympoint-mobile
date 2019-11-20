@@ -30,7 +30,16 @@ const HelpOrders = ({ navigation }) => {
                 <HelpOrdersList
                     data={helpOrders}
                     keyExtractor={item => String(item.id)}
-                    renderItem={({ item }) => <HelpOrder data={item} />}
+                    renderItem={({ item: helpOrder }) => (
+                        <HelpOrder
+                            data={helpOrder}
+                            onPress={() => {
+                                navigation.navigate('HelpOrderDetail', {
+                                    helpOrder,
+                                });
+                            }}
+                        />
+                    )}
                 />
             </Spacer>
         </Container>
