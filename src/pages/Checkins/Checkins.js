@@ -1,12 +1,26 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import Button from 'components/Button';
+import Checkin from 'components/Checkin';
+import { Container, CheckinsList, Spacer } from './styles';
+
+const data = [1, 2, 3, 5];
 
 const Checkins = () => {
     return (
-        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: '#000' }}>Checkins</Text>
-        </View>
+        <Container>
+            <Spacer>
+                <Button>Novo check-in</Button>
+                <CheckinsList
+                    data={data}
+                    keyExtractor={item => String(item)}
+                    renderItem={({ item, index }) => (
+                        <Checkin data={item} index={index} />
+                    )}
+                />
+            </Spacer>
+        </Container>
     );
 };
 
