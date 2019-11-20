@@ -2,10 +2,12 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Signin from 'pages/Signin';
 import Checkins from 'pages/Checkins';
 import Header from 'components/Header';
+import HelpOrders from 'pages/HelpOrders';
 
 export default (signedIn = false) =>
     createAppContainer(
@@ -17,12 +19,32 @@ export default (signedIn = false) =>
                         Main: createBottomTabNavigator(
                             {
                                 Checkins,
+                                HelpOrdersStack: {
+                                    screen: createStackNavigator(
+                                        {
+                                            HelpOrders,
+                                        },
+                                        {
+                                            headerMode: 'none',
+                                        },
+                                    ),
+                                    navigationOptions: {
+                                        title: 'Pedir ajuda',
+                                        tabBarIcon: ({ tintColor }) => (
+                                            <Icon
+                                                name="live-help"
+                                                size={20}
+                                                color={tintColor}
+                                            />
+                                        ),
+                                    },
+                                },
                             },
                             {
                                 tabBarOptions: {
                                     keyboardHidesTabBar: true,
                                     activeTintColor: '#EE4E62',
-                                    inactiveTintColor: 'rgba(255,255,255,.6)',
+                                    inactiveTintColor: '#999999',
                                 },
                             },
                         ),
