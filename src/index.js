@@ -4,15 +4,14 @@ import { Provider } from 'react-redux';
 
 import './config/reactotron';
 
-import Routes from 'routes';
 import { store, persistor } from './store';
+import App from './App';
 
-const App = () => (
+const Index = () => (
     <Provider store={store}>
-        <PersistGate persistor={persistor}>
-            <Routes />
-        </PersistGate>
+        <PersistGate persistor={persistor} />
+        <App />
     </Provider>
 );
 
-export default App;
+export default Index;
