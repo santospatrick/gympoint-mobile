@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import ButtonComponent from 'components/Button';
 
 export const Container = styled.SafeAreaView`
     flex: 1;
@@ -14,4 +15,6 @@ export const CheckinsList = styled.FlatList.attrs({
     contentContainerStyle: {},
 })``;
 
-export const Checkin = styled.View``;
+export const Button = styled(ButtonComponent)`
+    margin-bottom: 10px;
+`;

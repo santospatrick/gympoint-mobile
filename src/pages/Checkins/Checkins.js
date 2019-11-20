@@ -1,9 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import Button from 'components/Button';
 import Checkin from 'components/Checkin';
-import { Container, CheckinsList, Spacer } from './styles';
+import { Container, CheckinsList, Spacer, Button } from './styles';
 
 const data = [1, 2, 3, 5];
 
