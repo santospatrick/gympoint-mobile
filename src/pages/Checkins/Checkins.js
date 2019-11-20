@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -11,26 +11,34 @@ import { Container, CheckinsList, Spacer, Button } from './styles';
 const Checkins = () => {
     const userId = useSelector(state => state.auth.id);
     const [checkins, setCheckins] = useState([]);
-    useEffect(() => {
-        async function loadCheckins() {
-            const response = await api.get(`students/${userId}/checkins`);
-            const data = response.data.map(item => ({
-                ...item,
-                formattedDate: formatRelative(
-                    parseISO(item.created_at),
-                    new Date(),
-                    { locale: pt },
-                ),
-            }));
-            setCheckins(data);
-        }
-        loadCheckins();
+
+    const loadCheckins = useCallback(async () => {
+        const response = await api.get(`students/${userId}/checkins`);
+        const data = response.data.map(item => ({
+            ...item,
+            formattedDate: formatRelative(
+                parseISO(item.created_at),
+                new Date(),
+                { locale: pt },
+            ),
+        }));
+        setCheckins(data);
     }, [userId]);
+
+    async function handleNewCheckin() {
+        await api.post(`students/${userId}/checkins`);
+        loadCheckins();
+        alert('Check-in registrado com sucesso!');
+    }
+
+    useEffect(() => {
+        loadCheckins();
+    }, [loadCheckins]);
 
     return (
         <Container>
             <Spacer>
-                <Button>Novo check-in</Button>
+                <Button onPress={handleNewCheckin}>Novo check-in</Button>
                 <CheckinsList
                     data={checkins}
                     keyExtractor={item => String(item.id)}

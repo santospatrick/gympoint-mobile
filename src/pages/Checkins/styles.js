@@ -7,6 +7,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const Spacer = styled.View`
+    flex: 1;
     padding: 0 20px;
 `;
 
