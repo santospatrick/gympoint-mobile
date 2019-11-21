@@ -21,13 +21,9 @@ const HelpOrder = ({ data, ...rest }) => {
                         {answered ? 'Respondido' : 'Sem resposta'}
                     </LeftText>
                 </Left>
-                <Time>Hoje as 14h</Time>
+                <Time>{data.formattedDate}</Time>
             </Header>
-            <Question>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                aliquid vel eius delectus itaque. Nulla unde a quae aliquam
-                assumenda!
-            </Question>
+            <Question>{data.question}</Question>
         </Container>
     );
 };

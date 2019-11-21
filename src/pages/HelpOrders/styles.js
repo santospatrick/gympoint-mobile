@@ -13,7 +13,7 @@ export const Spacer = styled.View`
 
 export const HelpOrdersList = styled.FlatList.attrs({
     showsVerticalScrollIndicator: false,
-    contentContainerStyle: {},
+    contentContainerStyle: { paddingBottom: 20 },
 })``;
 
 export const Button = styled(ButtonComponent)`

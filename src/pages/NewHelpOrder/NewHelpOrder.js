@@ -1,11 +1,42 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { Keyboard } from 'react-native';
+import { useSelector } from 'react-redux';
+import api from 'services/api';
+import { Container, Spacer, Button, Input } from './styles';
 
-const NewHelpOrder = () => {
+const NewHelpOrder = ({ navigation }) => {
+    const userId = useSelector(state => state.auth.id);
+    const [loading, setLoading] = useState(false);
+    const [value, setValue] = useState('');
+
+    const handleSubmit = useCallback(async () => {
+        Keyboard.dismiss();
+        if (!value) return;
+
+        try {
+            setLoading(true);
+            await api.post(`students/${userId}/help-orders`, {
+                question: value,
+            });
+            navigation.goBack();
+        } finally {
+            setLoading(false);
+        }
+    }, [navigation, userId, value]);
+
     return (
-        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <Text>NewHelpOrder</Text>
-        </View>
+        <Container>
+            <Spacer>
+                <Input
+                    placeholder="Inclua seu pedido de auxílio"
+                    onChangeText={setValue}
+                    value={value}
+                />
+                <Button loading={loading} onPress={handleSubmit}>
+                    Novo pedido de auxílio
+                </Button>
+            </Spacer>
+        </Container>
     );
 };
 

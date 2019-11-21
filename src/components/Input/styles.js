@@ -8,4 +8,5 @@ export const Container = styled.TextInput.attrs({
     border: 1px solid #ddd;
     padding: 0 20px;
     color: #000;
+    background: #fff;
 `;
