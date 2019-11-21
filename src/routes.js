@@ -9,6 +9,7 @@ import Checkins from 'pages/Checkins';
 import Header from 'components/Header';
 import HelpOrders from 'pages/HelpOrders';
 import NewHelpOrder from 'pages/NewHelpOrder';
+import HelpOrderDetail from 'pages/HelpOrderDetail';
 
 export default (signedIn = false) =>
     createAppContainer(
@@ -46,6 +47,7 @@ export default (signedIn = false) =>
                                         {
                                             HelpOrders,
                                             NewHelpOrder,
+                                            HelpOrderDetail,
                                         },
                                         {
                                             headerBackTitleVisible: false,
