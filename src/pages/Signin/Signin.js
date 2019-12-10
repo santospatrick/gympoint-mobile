@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
-import { signIn } from 'store/modules/auth/actions';
+import { signIn, signOut } from 'store/modules/auth/actions';
 import { Container, Form, Logo } from './styles';
 
 const Signin = () => {
     const dispatch = useDispatch();
     const [value, setValue] = useState('');
 
+    useEffect(() => {
+        dispatch(signOut());
+    }, [dispatch]);
+
     function handleSubmit() {
-        if (!value) return;
+        if (!value) {
+            alert('Informe seu ID para entrar!');
+            return;
+        }
         dispatch(signIn(value));
     }
 

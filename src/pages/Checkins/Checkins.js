@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Checkin from 'components/Checkin';
 import api from 'services/api';

@@ -26,10 +26,27 @@ export default (signedIn = false) =>
                                             Checkins,
                                         },
                                         {
-                                            defaultNavigationOptions: {
+                                            defaultNavigationOptions: ({
+                                                navigation,
+                                            }) => ({
                                                 headerTitle: () => <Header />,
-                                            },
-                                            navigationOptions: {
+                                                headerRight: () => (
+                                                    <Icon
+                                                        onPress={() => {
+                                                            navigation.navigate(
+                                                                'Signin',
+                                                            );
+                                                        }}
+                                                        style={{
+                                                            marginRight: 10,
+                                                        }}
+                                                        name="block"
+                                                        size={20}
+                                                        color="#EE4E62"
+                                                    />
+                                                ),
+                                            }),
+                                            navigationOptions: () => ({
                                                 tabBarLabel: 'Check-ins',
                                                 tabBarIcon: ({ tintColor }) => (
                                                     <Icon
@@ -38,7 +55,7 @@ export default (signedIn = false) =>
                                                         color={tintColor}
                                                     />
                                                 ),
-                                            },
+                                            }),
                                         },
                                     ),
                                 },
@@ -51,7 +68,9 @@ export default (signedIn = false) =>
                                         },
                                         {
                                             headerBackTitleVisible: false,
-                                            defaultNavigationOptions: {
+                                            defaultNavigationOptions: ({
+                                                navigation,
+                                            }) => ({
                                                 headerTitle: () => <Header />,
                                                 headerBackImage: () => (
                                                     <Icon
@@ -63,10 +82,25 @@ export default (signedIn = false) =>
                                                         }}
                                                     />
                                                 ),
-                                            },
+                                                headerRight: () => (
+                                                    <Icon
+                                                        onPress={() => {
+                                                            navigation.navigate(
+                                                                'Signin',
+                                                            );
+                                                        }}
+                                                        style={{
+                                                            marginRight: 10,
+                                                        }}
+                                                        name="block"
+                                                        size={20}
+                                                        color="#EE4E62"
+                                                    />
+                                                ),
+                                            }),
                                         },
                                     ),
-                                    navigationOptions: {
+                                    navigationOptions: ({ navigation }) => ({
                                         title: 'Pedir ajuda',
                                         tabBarIcon: ({ tintColor }) => (
                                             <Icon
@@ -75,7 +109,22 @@ export default (signedIn = false) =>
                                                 color={tintColor}
                                             />
                                         ),
-                                    },
+                                        headerRight: () => (
+                                            <Icon
+                                                onPress={() => {
+                                                    navigation.navigate(
+                                                        'Signin',
+                                                    );
+                                                }}
+                                                style={{
+                                                    marginRight: 10,
+                                                }}
+                                                name="block"
+                                                size={20}
+                                                color="#EE4E62"
+                                            />
+                                        ),
+                                    }),
                                 },
                             },
                             {
