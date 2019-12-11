@@ -10,6 +10,7 @@ import Header from 'components/Header';
 import HelpOrders from 'pages/HelpOrders';
 import NewHelpOrder from 'pages/NewHelpOrder';
 import HelpOrderDetail from 'pages/HelpOrderDetail';
+import HeaderRight from 'components/HeaderRight';
 
 export default (signedIn = false) =>
     createAppContainer(
@@ -31,18 +32,8 @@ export default (signedIn = false) =>
                                             }) => ({
                                                 headerTitle: () => <Header />,
                                                 headerRight: () => (
-                                                    <Icon
-                                                        onPress={() => {
-                                                            navigation.navigate(
-                                                                'Signin',
-                                                            );
-                                                        }}
-                                                        style={{
-                                                            marginRight: 10,
-                                                        }}
-                                                        name="block"
-                                                        size={20}
-                                                        color="#EE4E62"
+                                                    <HeaderRight
+                                                        navigation={navigation}
                                                     />
                                                 ),
                                             }),
@@ -83,18 +74,8 @@ export default (signedIn = false) =>
                                                     />
                                                 ),
                                                 headerRight: () => (
-                                                    <Icon
-                                                        onPress={() => {
-                                                            navigation.navigate(
-                                                                'Signin',
-                                                            );
-                                                        }}
-                                                        style={{
-                                                            marginRight: 10,
-                                                        }}
-                                                        name="block"
-                                                        size={20}
-                                                        color="#EE4E62"
+                                                    <HeaderRight
+                                                        navigation={navigation}
                                                     />
                                                 ),
                                             }),
