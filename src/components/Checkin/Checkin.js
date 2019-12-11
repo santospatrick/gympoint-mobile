@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Container, Number, Time } from './styles';
 
 const Checkin = ({ data, index }) => {
@@ -8,6 +9,13 @@ const Checkin = ({ data, index }) => {
             <Time>{data.formattedDate}</Time>
         </Container>
     );
+};
+
+Checkin.propTypes = {
+    data: PropTypes.shape({
+        formattedDate: PropTypes.string,
+    }).isRequired,
+    index: PropTypes.number.isRequired,
 };
 
 export default Checkin;

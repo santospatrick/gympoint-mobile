@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { Keyboard } from 'react-native';
 import { useSelector } from 'react-redux';
 import api from 'services/api';
@@ -38,6 +39,12 @@ const NewHelpOrder = ({ navigation }) => {
             </Spacer>
         </Container>
     );
+};
+
+NewHelpOrder.propTypes = {
+    navigation: PropTypes.shape({
+        goBack: PropTypes.func.isRequired,
+    }).isRequired,
 };
 
 export default NewHelpOrder;

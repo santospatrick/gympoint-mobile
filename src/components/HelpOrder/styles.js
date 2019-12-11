@@ -37,6 +37,7 @@ export const LeftText = styled.Text`
 
 export const Time = styled.Text`
     color: #666;
+    font-size: 10px;
 `;
 
 export const Question = styled.Text.attrs({

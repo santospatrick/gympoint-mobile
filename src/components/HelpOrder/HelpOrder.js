@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 import {
     Container,
     Header,
@@ -26,6 +27,14 @@ const HelpOrder = ({ data, ...rest }) => {
             <Question>{data.question}</Question>
         </Container>
     );
+};
+
+HelpOrder.propTypes = {
+    data: PropTypes.shape({
+        answer: PropTypes.string,
+        formattedDate: PropTypes.string,
+        question: PropTypes.string,
+    }).isRequired,
 };
 
 export default HelpOrder;
