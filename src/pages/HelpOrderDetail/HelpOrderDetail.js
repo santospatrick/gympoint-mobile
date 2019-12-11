@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { Container, Spacer, Card, Title, Paragraph } from './styles';
 
 const HelpOrderDetail = ({ navigation }) => {
@@ -26,6 +26,13 @@ const HelpOrderDetail = ({ navigation }) => {
             </Spacer>
         </Container>
     );
+};
+
+HelpOrderDetail.propTypes = {
+    navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+        getParam: PropTypes.func,
+    }).isRequired,
 };
 
 export default HelpOrderDetail;

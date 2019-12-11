@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { withNavigationFocus } from 'react-navigation';
 import { useSelector } from 'react-redux';
 import { parseISO, formatDistance } from 'date-fns';
@@ -8,7 +9,7 @@ import api from 'services/api';
 import HelpOrder from 'components/HelpOrder';
 import { Container, HelpOrdersList, Spacer, Button } from './styles';
 
-const HelpOrders = ({ navigation, isFocused }) => {
+const HelpOrders = ({ navigation }) => {
     const userId = useSelector(state => state.auth.id);
     const [helpOrders, setHelpOrders] = useState([]);
 
@@ -30,7 +31,7 @@ const HelpOrders = ({ navigation, isFocused }) => {
         }
 
         loadHelpOrders();
-    }, [userId, isFocused]);
+    }, [userId]);
 
     return (
         <Container>
@@ -59,6 +60,12 @@ const HelpOrders = ({ navigation, isFocused }) => {
             </Spacer>
         </Container>
     );
+};
+
+HelpOrders.propTypes = {
+    navigation: PropTypes.shape({
+        navigate: PropTypes.func,
+    }).isRequired,
 };
 
 export default withNavigationFocus(HelpOrders);

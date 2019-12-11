@@ -12,6 +12,8 @@ import NewHelpOrder from 'pages/NewHelpOrder';
 import HelpOrderDetail from 'pages/HelpOrderDetail';
 import HeaderRight from 'components/HeaderRight';
 
+import { getPersonIcon, getLiveIcon } from 'components/tabIcons';
+
 export default (signedIn = false) =>
     createAppContainer(
         createSwitchNavigator(
@@ -39,13 +41,7 @@ export default (signedIn = false) =>
                                             }),
                                             navigationOptions: () => ({
                                                 tabBarLabel: 'Check-ins',
-                                                tabBarIcon: ({ tintColor }) => (
-                                                    <Icon
-                                                        name="person-pin-circle"
-                                                        size={20}
-                                                        color={tintColor}
-                                                    />
-                                                ),
+                                                tabBarIcon: getPersonIcon,
                                             }),
                                         },
                                     ),
@@ -83,13 +79,7 @@ export default (signedIn = false) =>
                                     ),
                                     navigationOptions: ({ navigation }) => ({
                                         title: 'Pedir ajuda',
-                                        tabBarIcon: ({ tintColor }) => (
-                                            <Icon
-                                                name="live-help"
-                                                size={20}
-                                                color={tintColor}
-                                            />
-                                        ),
+                                        tabBarIcon: getLiveIcon,
                                         headerRight: () => (
                                             <Icon
                                                 onPress={() => {
