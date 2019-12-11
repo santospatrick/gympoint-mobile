@@ -33,6 +33,8 @@ const Signin = () => {
                     autoCapitalize="none"
                     onChangeText={setValue}
                     value={value}
+                    onSubmitEditing={handleSubmit}
+                    returnKeyboardType="go"
                 />
                 <Button onPress={handleSubmit}>Entrar no sistema</Button>
             </Form>

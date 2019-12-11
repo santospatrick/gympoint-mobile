@@ -43,6 +43,7 @@ export default (signedIn = false) =>
                                                 tabBarLabel: 'Check-ins',
                                                 tabBarIcon: getPersonIcon,
                                             }),
+                                            headerLayoutPreset: 'center',
                                         },
                                     ),
                                 },
@@ -75,6 +76,7 @@ export default (signedIn = false) =>
                                                     />
                                                 ),
                                             }),
+                                            headerLayoutPreset: 'center',
                                         },
                                     ),
                                     navigationOptions: ({ navigation }) => ({
