@@ -25,9 +25,16 @@ const Checkins = () => {
     }, [userId]);
 
     async function handleNewCheckin() {
-        await api.post(`students/${userId}/checkins`);
-        loadCheckins();
-        alert('Check-in registrado com sucesso!');
+        try {
+            await api.post(`students/${userId}/checkins`);
+            loadCheckins();
+
+            alert('Check-in registrado com sucesso!');
+        } catch (error) {
+            if (error.response.data && error.response.data.error) {
+                alert('Limite de check-ins nos útimos 7 dias atingido');
+            }
+        }
     }
 
     useEffect(() => {
